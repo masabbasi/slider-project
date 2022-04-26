@@ -1,4 +1,4 @@
-const back = document.querySelector('.back');
+const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const sliderImage = document.querySelector('.slider-image');
 const sliderLink = document.querySelector('.slider-link');
@@ -26,17 +26,17 @@ let allImage = [
         imageTitle:'Image 04'
     }
 ]
-back.addEventListener('click',backImage)
+prev.addEventListener('click',prevImage)
 next.addEventListener('click',nextImage)
 
-function backImage () {
+function prevImage () {
     imageIndex--
     if (imageIndex<0) {
         imageIndex = allImage.length
     }
     sliderImage.src=allImage[imageIndex].imagePath;
     sliderLink.href=allImage[imageIndex].imageLink;
-    sliderLink.href=allImage[imageIndex].imageTitle;
+    sliderTitle.innerHTML=allImage[imageIndex].imageTitle;
 }
 
 function nextImage () {
@@ -48,3 +48,4 @@ function nextImage () {
     sliderLink.href=allImage[imageIndex].imageLink;
     sliderTitle.innerHTML=allImage[imageIndex].imageTitle;
 }
+setInterval(nextImage,3000)
